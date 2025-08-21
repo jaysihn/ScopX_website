@@ -42,7 +42,13 @@ header.site{
   border-bottom:1px solid rgba(15,23,42,.06)
 }
 nav.bar{display:flex;align-items:center;justify-content:space-between;height:72px}
-nav .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem;color:#111}
+nav .brand{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:1.15rem;
+  color:var(--brand);
+}
+nav .brand:hover{ text-decoration:none; opacity:.9; }
+
 .brand img{height:36px;width:auto}
 nav .links{display:flex;gap:20px;align-items:center}
 .hero{
