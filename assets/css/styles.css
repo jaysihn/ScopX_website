@@ -6,7 +6,12 @@
   --muted:#475569;
   --bg:#FFFFFF;
   --bg-2:#0b0f1a;
+
+  /* Store badge controls */
+  --badge-h: 44px;       /* image height */
+  --badge-radius: 12px;  /* corner roundness */
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -29,13 +34,17 @@ a:hover{text-decoration:underline}
 .btn--primary{background:var(--brand); color:#fff; border-color:transparent}
 .btn--primary:hover{background:var(--brand-dark)}
 .btn--ghost{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff}
-.badges{display:flex;gap:12px;flex-wrap:wrap}
-.badge{
-  display:inline-flex;align-items:center;gap:.6rem;
-  padding:.6rem .9rem;border-radius:12px;border:1px solid rgba(0,0,0,.12);
-  background:#0b0f1a;color:#fff; font-weight:600
+
+.badges{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  column-gap:12px;   /* horizontal space between items */
+  row-gap:22px;      /* vertical space between rows */
 }
-.badge svg{width:20px;height:20px}
+
+.badges .btn{ margin-top:6px; }
+
 header.site{
   position:sticky; top:0; z-index:40;
   background:rgba(255,255,255,.85); backdrop-filter: blur(8px);
@@ -96,3 +105,44 @@ small.disclaimer{display:block;color:#64748b;margin-top:10px}
 @media (max-width: 520px){
   .gallery{grid-template-columns:1fr}
 }
+
+/* Make text buttons match the store badge size */
+.btn--store-sized{
+  height: var(--badge-h);
+  border-radius: var(--badge-radius);
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.btn--store-sized:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+/* Store badge image buttons */
+.store-badge{
+  display:inline-block; line-height:0;
+  border-radius:var(--badge-radius);
+  overflow:hidden; /* rounded corners */
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.store-badge img{
+  height:var(--badge-h);
+  width:auto; max-width:100%;
+  display:block; border-radius:inherit;
+}
+.store-badge:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+}
+
+/* Nice spacing when they wrap */
+.badges{
+  display:flex; align-items:center; flex-wrap:wrap;
+  column-gap:12px; row-gap:22px;
+}
+.badges .btn{ margin-top:6px; } /* only noticeable when it wraps */
+
