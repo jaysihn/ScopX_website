@@ -1,4 +1,3 @@
-
 :root{
   --brand:#D26010;
   --brand-dark:#A6480C;
@@ -139,10 +138,27 @@ small.disclaimer{display:block;color:#64748b;margin-top:10px}
   box-shadow:0 10px 24px rgba(0,0,0,.12);
 }
 
-/* Nice spacing when they wrap */
-.badges{
-  display:flex; align-items:center; flex-wrap:wrap;
-  column-gap:12px; row-gap:22px;
+.store-badge-wrapper {
+  position: relative;
+  display: inline-block;
 }
-.badges .btn{ margin-top:6px; } /* only noticeable when it wraps */
+
+.store-badge-wrapper .badge-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.store-badge.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
 
