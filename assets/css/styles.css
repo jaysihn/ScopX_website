@@ -149,7 +149,7 @@ small.disclaimer{display:block;color:#64748b;margin-top:10px}
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: #000; /* Updated to black for better readability */
   font-size: 0.75rem;
   font-weight: bold;
   padding: 4px 8px;
